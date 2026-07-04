@@ -3,7 +3,7 @@ import { db } from '@/lib/db';
 
 export async function GET(
   request: Request,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   const { id } = await params;
   const listing = db.listings.find(l => l.id === id);
